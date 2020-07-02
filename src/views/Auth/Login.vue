@@ -7,6 +7,18 @@
         }" transition="slide-x-transition">
           <v-hover v-slot:default="{ hover }">
             <v-card :elevation="hover ? 12 : 2">
+              <v-sheet
+                rounded
+                outlined
+                color="green"
+                width="80%"
+                class="v-card--material__heading mb-n6 pa-7"
+                elevation="6"
+                dark
+              >
+                <h4>Please enter your email and password</h4>
+              </v-sheet>
+
               <v-form v-model="form" ref="form" class="pa-5" @submit.prevent="login">
                 <v-container>
                   <v-row v-if="alert">
@@ -113,3 +125,13 @@ export default {
   }
 };
 </script>
+
+<style lang="sass">
+.v-card--material
+  &__heading
+    position: relative
+    top: -40px
+    left: 10%
+    transition: .3s ease
+    z-index: 1
+</style>
