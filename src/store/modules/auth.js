@@ -1,5 +1,7 @@
+import vueCookie from "vue-cookie";
+
 const initState = {
-    token: localStorage.getItem("token") || null
+    token: vueCookie.get("token") || null
 }
 
 export default {
@@ -14,11 +16,11 @@ export default {
     },
     actions: {
         setToken({ commit }, token) {
-            localStorage.setItem("token", token);
+            vueCookie.set("token", token);
             commit("setToken", token);
         },
         logout({ commit }) {
-            localStorage.removeItem("token");
+            vueCookie.delete("token");
             commit("logout")
         }
     },
